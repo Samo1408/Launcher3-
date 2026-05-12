@@ -46,6 +46,9 @@ jobs:
             cp /tmp/gradle-${{ env.GRADLE_VERSION }}/gradle/wrapper/gradle-wrapper.jar gradle/wrapper/
           fi
 
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
       - name: Create local.properties
         run: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
@@ -97,6 +100,9 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: 'temurin'
           cache: 'gradle'
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Setup Android SDK
         run: |
